@@ -1,0 +1,25 @@
+pin map
+------------------------------------------
+MOTOR
+1IN PA4
+2IN PB0
+3IN PC1
+4IN PC0
+------------------------------------------
+BLUETOOTH TX - MCU RX: PA10
+BLUETOOTH RX - MCU TX: PA9
+------------------------------------------
+BLUETOOTH CONTROL PAD SETTINGS
+UP: F
+DOWN: B
+RIGHT: R
+LEFT: L
+
+TRIANGLE: T
+X: X
+O: C
+ㅁ: S
+
+START: A
+PAUSE: P
+------------------------------------------

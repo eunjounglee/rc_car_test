@@ -1,0 +1,16 @@
+speed.h/speed.c 파일 내용 추가
+
+void motor_speedInit(); // (수정) 스피드 init
+void motor_speedUp(); // (수정) 스피드 UP (CCR +100)
+void motor_speedDown(); // (수정) 스피드 DOWN (CCR +100)
+void motor_goRight(); // (추가) 우회전 CCR (왼)+200, (오른)-200
+void motor_goLeft(); // (추가) 좌회전 CCR (왼)-100, (오른)+100
+void motor_recover(); // (추가) 우회전/좌회전 후 직진/후진 할 시 모터 속도 조정
+
+사용 채널
+TIM3 - Channel1 -> PA6
+TIM3 - Channel2 -> PA7
+
+PSC 65
+ARR 1009
+PULSE 700

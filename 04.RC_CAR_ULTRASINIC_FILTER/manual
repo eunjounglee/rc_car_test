@@ -1,0 +1,28 @@
+ultrasonic.h / ultrasonic.c 추가
+(automode 파일은 선 연습용, 추후 변경 예정)
+
+ultrasonic 파일 pin map
+
+             |        좌      |       중간      |      우     
+eco (timer4) | PB7 (channel2) | PB8 (channel3) | PB6 (channel1)
+  trigger    |      PC8       |      PC6       |     PC5
+
+- US_Update()에서 “풀프레임(3채널)”일 때만 필터 실행
+- filter() 에서 상한: 센서 최대 유효거리(400cm)로 클램프
+- 미디안(중앙값) 필터 적용: 단발성 스파이크 제거에 유리
+
+terminal test는 RTOS에서 함. (Mutex 걸고 printf, Task가 여러 개여도 출력이 섞이지 않음)
+1. 전역 Mutex 만들기 (freertos.c → MX_FREERTOS_Init 안에서)
+2. printf() 쓸 때 
+   osMutexAcquire(printMutexHandle, osWaitForever);
+   // printf(내용) //
+   osMutexRelease(printMutexHandle);
+   으로 감싸기
+3. printf가 주 목적이므로 osDelay(50);
+
+RTOS task 정리 (automode용)
+task1 : ultrasonic
+task2 : automode
+-> 추후 블루투스 조이스틱 사용하게 되면 task 재 설정 예정임.
+
+

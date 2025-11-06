@@ -1,6 +1,11 @@
 ultrasonic.h / ultrasonic.c 추가
 (automode 파일은 선 연습용, 추후 변경 예정)
 
+// distance 반환 읽기 API
+uint16_t US_Left_cm()   { return filter_distance_cm[US_LEFT]; }
+uint16_t US_Right_cm()  { return filter_distance_cm[US_RIGHT]; }
+uint16_t US_Center_cm() { return filter_distance_cm[US_CENTER]; }
+
 ultrasonic 파일 pin map
 
              |        좌      |       중간      |      우     
